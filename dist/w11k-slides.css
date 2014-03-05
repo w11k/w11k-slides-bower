@@ -250,6 +250,9 @@ html, body {
 }
 
 @media screen {
+  .screen {
+    height: 100%;
+  }
   .screen .slides {
     height: 100%;
     max-width: 99.9999%;
