@@ -1,44 +1,40 @@
 @charset "UTF-8";
-.com {
-  color: #93a1a1;
+a.example-shown {
+  text-decoration: line-through !important;
+  color: #cccccc !important;
 }
 
-.lit {
-  color: #195f91;
-}
-
-.pun, .opn, .clo {
-  color: #93a1a1;
-}
-
-.fun {
-  color: #dc322f;
-}
-
-.str, .atv {
-  color: #D14;
-}
-
-.kwd, .linenums .tag {
-  color: #1e347b;
-}
-
-.typ, .atn, .dec, .var {
-  color: teal;
-}
-
-.pln {
-  color: #48484c;
-}
-
-.slide .prettyprint {
+pre.prettyprint {
   padding: 0;
   background-color: #fff;
   border: 0.1em solid #dddddd;
   border-radius: 0.2em;
 }
-
-ol.linenums {
+pre.prettyprint .com {
+  color: #93a1a1;
+}
+pre.prettyprint .lit {
+  color: #195f91;
+}
+pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo {
+  color: #93a1a1;
+}
+pre.prettyprint .fun {
+  color: #dc322f;
+}
+pre.prettyprint .str, pre.prettyprint .atv {
+  color: #D14;
+}
+pre.prettyprint .kwd, pre.prettyprint .linenums .tag {
+  color: #1e347b;
+}
+pre.prettyprint .typ, pre.prettyprint .atn, pre.prettyprint .dec, pre.prettyprint .var {
+  color: teal;
+}
+pre.prettyprint .pln {
+  color: #48484c;
+}
+pre.prettyprint.linenums ol.linenums {
   counter-reset: li;
   /* Initiate a counter */
   list-style: none;
@@ -46,13 +42,11 @@ ol.linenums {
   padding: 0;
   margin: 0 !important;
 }
-
-ol.linenums li {
+pre.prettyprint.linenums ol.linenums > li {
   padding: 0;
   margin: 0;
 }
-
-ol.linenums li code {
+pre.prettyprint.linenums ol.linenums > li > code {
   position: relative;
   display: block;
   padding: .2em .5em;
@@ -62,16 +56,10 @@ ol.linenums li code {
   border-left: 0.1em solid #dddddd;
   min-height: 1.4em;
 }
-
-ol.linenums li:nth-child(even) code {
-  background-color: #dddddd;
-}
-
-ol.linenums li code:hover {
+pre.prettyprint.linenums ol.linenums > li > code:hover {
   background: #b7b7b7;
 }
-
-ol.linenums li code:before {
+pre.prettyprint.linenums ol.linenums > li > code:before {
   content: counter(li);
   counter-increment: li;
   position: absolute;
@@ -79,6 +67,9 @@ ol.linenums li code:before {
   width: 1.5em;
   text-align: right;
   color: #dddddd;
+}
+pre.prettyprint.linenums ol.linenums > li:nth-child(even) code {
+  background-color: #dddddd;
 }
 
 html, body {
@@ -193,10 +184,6 @@ html, body {
 }
 .slide a:hover, .slide a:focus {
   text-decoration: underline;
-}
-.slide a.example-shown {
-  text-decoration: line-through !important;
-  color: #cccccc !important;
 }
 .slide.title {
   vertical-align: middle;
