@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.1.0 - 2014-03-05
+ * w11k-slides - v0.1.1 - 2014-03-05
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -36,7 +36,7 @@ angular.module("w11k.slides").service("UnloadConfirm", function($window) {
 
 "use strict";
 
-angular.module("w11k.slides").directive("openOnce", function($window, UnloadConfirm) {
+angular.module("w11k.slides").directive("w11kOpenOnce", function($window, UnloadConfirm) {
     return {
         restrict: "A",
         scope: {
@@ -64,7 +64,7 @@ angular.module("w11k.slides").directive("openOnce", function($window, UnloadConf
 
 "use strict";
 
-angular.module("w11k.slides").directive("prettyPrint", function($window) {
+angular.module("w11k.slides").directive("w11kPrettyPrint", function($window) {
     return {
         restrict: "A",
         link: function() {
