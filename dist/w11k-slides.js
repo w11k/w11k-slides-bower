@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.1.3 - 2014-03-06
+ * w11k-slides - v0.1.4 - 2014-03-06
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -10,7 +10,7 @@ angular.module("w11k.slides", []);
 
 "use strict";
 
-angular.module("w11k.slides").service("UnloadConfirm", function($window) {
+angular.module("w11k.slides").service("UnloadConfirm", [ "$window", function($window) {
     var service = {
         counter: 0,
         increment: function() {
@@ -32,11 +32,11 @@ angular.module("w11k.slides").service("UnloadConfirm", function($window) {
     };
     $window.onbeforeunload = unloadListener;
     return service;
-});
+} ]);
 
 "use strict";
 
-angular.module("w11k.slides").directive("w11kOpenOnce", function($window, UnloadConfirm) {
+angular.module("w11k.slides").directive("w11kOpenOnce", [ "$window", "UnloadConfirm", function($window, UnloadConfirm) {
     return {
         restrict: "A",
         scope: {
@@ -60,11 +60,11 @@ angular.module("w11k.slides").directive("w11kOpenOnce", function($window, Unload
             });
         }
     };
-});
+} ]);
 
 "use strict";
 
-angular.module("w11k.slides").directive("w11kPrettyPrint", function($window) {
+angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", function($window) {
     return {
         restrict: "A",
         link: function() {
@@ -73,7 +73,7 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", function($window) {
             }
         }
     };
-});
+} ]);
 
 "use strict";
 
@@ -81,7 +81,7 @@ angular.module("w11k.slides").constant("slidesConfig", {
     slides: []
 });
 
-angular.module("w11k.slides").factory("SlidesService", function(slidesConfig, $location, $rootScope) {
+angular.module("w11k.slides").factory("SlidesService", [ "slidesConfig", "$location", "$rootScope", function(slidesConfig, $location, $rootScope) {
     var activeSlide;
     function activateFirstSlide() {
         if (angular.isDefined(activeSlide)) {
@@ -159,13 +159,13 @@ angular.module("w11k.slides").factory("SlidesService", function(slidesConfig, $l
             $location.path(slides[1].name);
         }
     };
-});
+} ]);
 
-angular.module("w11k.slides").controller("SlidesCtrl", function($scope, SlidesService) {
+angular.module("w11k.slides").controller("SlidesCtrl", [ "$scope", "SlidesService", function($scope, SlidesService) {
     $scope.slides = SlidesService.getSlides();
-});
+} ]);
 
-angular.module("w11k.slides").directive("w11kSlides", function($location, $document, SlidesService, $rootScope, slidesConfig) {
+angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document", "SlidesService", "$rootScope", "slidesConfig", function($location, $document, SlidesService, $rootScope, slidesConfig) {
     return {
         restrict: "EA",
         templateUrl: slidesConfig.directiveTemplateUrl || "slides/slides.tpl.html",
@@ -208,4 +208,4 @@ angular.module("w11k.slides").directive("w11kSlides", function($location, $docum
             });
         }
     };
-});
+} ]);
