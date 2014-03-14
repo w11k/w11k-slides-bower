@@ -142,7 +142,7 @@ html, body {
   color: #9a0510;
   font-size: 1.3em;
 }
-.slide ul, .slide ol {
+.slide ul {
   margin: 0 0 1em 1em;
   padding: 0;
 }
@@ -220,19 +220,21 @@ html, body {
   .screen .slide ul {
     list-style: none;
   }
-  .screen .slide ul, .screen .slide ol {
+  .screen .slide ul {
     margin-left: 0;
   }
-  .screen .slide li {
-    color: #111111;
+  .screen .slide ul li {
     padding-left: 1em;
-    margin-bottom: 0.3em;
   }
   .screen .slide ul li:before {
     content: "▸";
     color: #9a0510;
     margin-right: 0.5em;
     margin-left: -1em;
+  }
+  .screen .slide ul li, .screen .slide ol li {
+    color: #111111;
+    margin-bottom: 0.3em;
   }
   .screen .slide li ul li:before {
     content: "▪";
