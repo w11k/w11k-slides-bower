@@ -195,48 +195,45 @@ html, body {
 }
 
 @media screen {
-  .screen {
-    height: 100%;
-  }
-  .screen .slides {
+  .slides.screen {
     height: 100%;
     max-width: 99.9999%;
   }
-  .screen .slides > div {
+  .slides.screen > div {
     display: table;
     height: 100%;
     width: 100%;
   }
-  .screen .slides > div > div {
+  .slides.screen > div > div {
     display: table-row;
     height: 100%;
     width: 100%;
   }
-  .screen .slides > div > div > * {
+  .slides.screen > div > div > * {
     display: table-cell;
     height: 100%;
     width: 100%;
   }
-  .screen .slide ul {
+  .slides.screen .slide ul {
     list-style: none;
   }
-  .screen .slide ul {
+  .slides.screen .slide ul {
     margin-left: 0;
   }
-  .screen .slide ul li {
+  .slides.screen .slide ul li {
     padding-left: 1em;
   }
-  .screen .slide ul li:before {
+  .slides.screen .slide ul li:before {
     content: "▸";
     color: #9a0510;
     margin-right: 0.5em;
     margin-left: -1em;
   }
-  .screen .slide ul li, .screen .slide ol li {
+  .slides.screen .slide ul li, .slides.screen .slide ol li {
     color: #111111;
     margin-bottom: 0.3em;
   }
-  .screen .slide li ul li:before {
+  .slides.screen .slide li ul li:before {
     content: "▪";
     color: #111111;
   }
@@ -299,37 +296,37 @@ html, body {
   }
 }
 @media screen {
-  .export {
+  .slides.export {
     -webkit-print-color-adjust: exact;
   }
-  .export .slides > div {
+  .slides.export > div {
     page-break-before: always;
     display: table !important;
     width: 298mm;
     height: 210mm;
   }
-  .export .slides > div > div {
+  .slides.export > div > div {
     display: table-row;
     height: 100%;
     width: 100%;
   }
-  .export .slides > div > div > * {
+  .slides.export > div > div > * {
     display: table-cell;
     height: 100%;
     width: 100%;
   }
-  .export .slide a[href]:after {
+  .slides.export .slide a[href]:after {
     content: "";
   }
-  .export .slide a[href^="http"]:after {
+  .slides.export .slide a[href^="http"]:after {
     content: " (" attr(href) ")";
     font-size: 0.7em;
     font-weight: normal;
   }
-  .export .slide ul {
+  .slides.export .slide ul {
     list-style: square;
   }
-  .export .slide ul ul {
+  .slides.export .slide ul ul {
     list-style: disc;
   }
 }

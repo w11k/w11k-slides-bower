@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.2.1 - 2014-03-14
+ * w11k-slides - v0.3.0 - 2014-04-28
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -67,9 +67,9 @@ angular.module("w11k.slides").directive("w11kOpenOnce", [ "$window", "UnloadConf
 angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", function($window) {
     return {
         restrict: "A",
-        link: function() {
+        link: function(scope, element) {
             if (angular.isFunction($window.prettyPrint)) {
-                $window.prettyPrint();
+                $window.prettyPrint(angular.noop, element[0]);
             }
         }
     };
@@ -170,7 +170,7 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document"
         restrict: "EA",
         templateUrl: slidesConfig.directiveTemplateUrl || "slides/slides.tpl.html",
         replace: true,
-        link: function() {
+        link: function(scope, element) {
             var goToNext = function() {
                 var next = SlidesService.getActiveSlide().next;
                 if (angular.isDefined(next)) {
@@ -203,6 +203,11 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document"
                 } else if (event.keyCode === 79) {
                     $rootScope.$apply(function() {
                         SlidesService.navigateToOverview();
+                    });
+                } else if (event.keyCode === 69) {
+                    $rootScope.$apply(function() {
+                        element.toggleClass("export");
+                        element.toggleClass("screen");
                     });
                 }
             });
