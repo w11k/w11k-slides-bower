@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.4.0 - 2014-05-15
+ * w11k-slides - v0.4.1 - 2014-05-15
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -73,6 +73,7 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", "$docume
     };
     return {
         restrict: "A",
+        terminal: true,
         compile: function(tElement, tAttrs) {
             if (angular.isFunction($window.prettyPrintOne)) {
                 var html = tElement.html();
