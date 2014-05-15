@@ -46,7 +46,7 @@ pre.prettyprint.linenums ol.linenums > li {
   padding: 0;
   margin: 0;
 }
-pre.prettyprint.linenums ol.linenums > li > code {
+pre.prettyprint.linenums ol.linenums > li {
   position: relative;
   display: block;
   padding: .2em .5em;
@@ -56,10 +56,7 @@ pre.prettyprint.linenums ol.linenums > li > code {
   border-left: 0.1em solid #dddddd;
   min-height: 1.4em;
 }
-pre.prettyprint.linenums ol.linenums > li > code:hover {
-  background: #b7b7b7;
-}
-pre.prettyprint.linenums ol.linenums > li > code:before {
+pre.prettyprint.linenums ol.linenums > li:before {
   content: counter(li);
   counter-increment: li;
   position: absolute;
@@ -68,8 +65,14 @@ pre.prettyprint.linenums ol.linenums > li > code:before {
   text-align: right;
   color: #dddddd;
 }
-pre.prettyprint.linenums ol.linenums > li:nth-child(even) code {
+pre.prettyprint.linenums ol.linenums > li:nth-child(even) {
   background-color: #dddddd;
+}
+pre.prettyprint.linenums ol.linenums > li:hover, pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover {
+  background-color: #b7b7b7;
+}
+pre.prettyprint.linenums ol.linenums > li:hover:before, pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover:before {
+  color: #9e9e9e;
 }
 
 html, body {
@@ -188,10 +191,6 @@ html, body {
 }
 .slide a:hover, .slide a:focus {
   text-decoration: underline;
-}
-.slide pre.prettyprint.linenums ol.linenums > li:before {
-  content: '';
-  margin: 0;
 }
 
 @media screen {
