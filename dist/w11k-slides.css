@@ -4,6 +4,10 @@ a.example-shown {
   color: #cccccc !important;
 }
 
+li pre.prettyprint.linenums {
+  margin: 10px 0;
+}
+
 pre.prettyprint {
   padding: 0;
   background-color: #fff;
@@ -41,6 +45,9 @@ pre.prettyprint.linenums ol.linenums {
   /* Remove default numbering */
   padding: 0;
   margin: 0 !important;
+}
+pre.prettyprint.linenums ol.linenums:before {
+  margin: 0;
 }
 pre.prettyprint.linenums ol.linenums > li {
   padding: 0;
@@ -156,6 +163,7 @@ html, body {
 }
 .slide code {
   color: #888;
+  background-color: #eaeaea;
 }
 .slide blockquote {
   font-size: 2em;
@@ -191,6 +199,15 @@ html, body {
 }
 .slide a:hover, .slide a:focus {
   text-decoration: underline;
+}
+.slide ul li ul {
+  margin-bottom: 0;
+}
+.slide a.btn {
+  font-size: 1em;
+}
+.slide a.btn:hover {
+  text-decoration: none;
 }
 
 @media screen {
@@ -313,6 +330,10 @@ html, body {
     display: table-cell;
     height: 100%;
     width: 100%;
+  }
+  .slides.export .slide {
+    border: 1px solid red;
+    border-width: 0;
   }
   .slides.export .slide a[href]:after {
     content: "";
