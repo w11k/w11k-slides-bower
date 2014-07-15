@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.4.2 - 2014-06-15
+ * w11k-slides - v0.4.2 - 2014-07-15
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -69,6 +69,8 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", "$docume
         }
         return html.replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
     };
+    var containerTemplate = '<div class="w11k-pretty-print"><pre class="prettyprint linenums"></pre></div>';
+    var titleTemplate = '<div class="title"></div>';
     return {
         restrict: "A",
         terminal: true,
@@ -77,11 +79,19 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", "$docume
                 var html = tElement.html();
                 var escapedHtml = escapeHTML(html);
                 var prettifiedHtml = $window.prettyPrintOne(escapedHtml, tAttrs.lang, true);
-                var preElement = $document[0].createElement("pre");
-                preElement.classList.add("prettyprint");
-                preElement.classList.add("linenums");
-                preElement.innerHTML = prettifiedHtml;
-                tElement.replaceWith(preElement);
+                var container = angular.element(containerTemplate);
+                var preElement = container.find("pre");
+                preElement.html(prettifiedHtml);
+                tElement.replaceWith(container);
+                return function(scope, element, attrs) {
+                    attrs.$observe("title", function(titleText) {
+                        if (titleText !== undefined && titleText !== "") {
+                            var titleElement = angular.element(titleTemplate);
+                            titleElement.html(titleText);
+                            container.prepend(titleElement);
+                        }
+                    });
+                };
             }
         }
     };

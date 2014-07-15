@@ -4,41 +4,45 @@ a.example-shown {
   color: #cccccc !important;
 }
 
-li pre.prettyprint.linenums {
+.w11k-pretty-print > .title {
+  margin-top: 0.3em;
+  margin-left: 2.5em;
+  font-style: italic;
+}
+.w11k-pretty-print li pre.prettyprint.linenums {
   margin: 10px 0;
 }
-
-pre.prettyprint {
+.w11k-pretty-print pre.prettyprint {
   padding: 0;
   background-color: #fff;
   border: 0.1em solid #dddddd;
   border-radius: 0.2em;
 }
-pre.prettyprint .com {
+.w11k-pretty-print pre.prettyprint .com {
   color: #93a1a1;
 }
-pre.prettyprint .lit {
+.w11k-pretty-print pre.prettyprint .lit {
   color: #195f91;
 }
-pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo {
+.w11k-pretty-print pre.prettyprint .pun, .w11k-pretty-print pre.prettyprint .opn, .w11k-pretty-print pre.prettyprint .clo {
   color: #93a1a1;
 }
-pre.prettyprint .fun {
+.w11k-pretty-print pre.prettyprint .fun {
   color: #dc322f;
 }
-pre.prettyprint .str, pre.prettyprint .atv {
+.w11k-pretty-print pre.prettyprint .str, .w11k-pretty-print pre.prettyprint .atv {
   color: #D14;
 }
-pre.prettyprint .kwd, pre.prettyprint .linenums .tag {
+.w11k-pretty-print pre.prettyprint .kwd, .w11k-pretty-print pre.prettyprint .linenums .tag {
   color: #1e347b;
 }
-pre.prettyprint .typ, pre.prettyprint .atn, pre.prettyprint .dec, pre.prettyprint .var {
+.w11k-pretty-print pre.prettyprint .typ, .w11k-pretty-print pre.prettyprint .atn, .w11k-pretty-print pre.prettyprint .dec, .w11k-pretty-print pre.prettyprint .var {
   color: teal;
 }
-pre.prettyprint .pln {
+.w11k-pretty-print pre.prettyprint .pln {
   color: #48484c;
 }
-pre.prettyprint.linenums ol.linenums {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums {
   counter-reset: li;
   /* Initiate a counter */
   list-style: none;
@@ -46,24 +50,25 @@ pre.prettyprint.linenums ol.linenums {
   padding: 0;
   margin: 0 !important;
 }
-pre.prettyprint.linenums ol.linenums:before {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums:before {
   margin: 0;
 }
-pre.prettyprint.linenums ol.linenums > li {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li {
   padding: 0;
   margin: 0;
 }
-pre.prettyprint.linenums ol.linenums > li {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li {
   position: relative;
   display: block;
-  padding: .2em .5em;
-  margin: 0 0 0 2em;
+  padding: 0.2em 0.5em;
+  margin: 0;
+  margin-left: 2em;
   background-color: #eaeaea;
   border-radius: 0;
   border-left: 0.1em solid #dddddd;
   min-height: 1.4em;
 }
-pre.prettyprint.linenums ol.linenums > li:before {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:before {
   content: counter(li);
   counter-increment: li;
   position: absolute;
@@ -71,14 +76,15 @@ pre.prettyprint.linenums ol.linenums > li:before {
   width: 1.5em;
   text-align: right;
   color: #dddddd;
+  margin: 0;
 }
-pre.prettyprint.linenums ol.linenums > li:nth-child(even) {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even) {
   background-color: #dddddd;
 }
-pre.prettyprint.linenums ol.linenums > li:hover, pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover, .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover {
   background-color: #b7b7b7;
 }
-pre.prettyprint.linenums ol.linenums > li:hover:before, pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover:before {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover:before, .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover:before {
   color: #9e9e9e;
 }
 
