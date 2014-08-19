@@ -356,3 +356,89 @@ html, body {
     list-style: disc;
   }
 }
+.slide.titled {
+  padding: 0;
+}
+.slide.titled .top {
+  position: relative;
+  height: 38.2%;
+  text-align: center;
+  color: #9a0510;
+  background-color: transparent;
+  padding: 0 2em;
+}
+.slide.titled .top .content {
+  position: relative;
+  top: 61.8%;
+  -webkit-transform: translateY(-61.8%);
+  -moz-transform: translateY(-61.8%);
+  -ms-transform: translateY(-61.8%);
+  -o-transform: translateY(-61.8%);
+  transform: translateY(-61.8%);
+  text-align: center;
+}
+.slide.titled .bottom {
+  position: relative;
+  height: 61.8%;
+  border-top: 0.3em solid transparent;
+  background-color: transparent;
+  padding: 0 2em;
+}
+.slide.titled .bottom .content {
+  position: relative;
+  top: 38.2%;
+  -webkit-transform: translateY(-38.2%);
+  -moz-transform: translateY(-38.2%);
+  -ms-transform: translateY(-38.2%);
+  -o-transform: translateY(-38.2%);
+  transform: translateY(-38.2%);
+  text-align: center;
+}
+
+.slide.centered {
+  vertical-align: middle;
+  text-align: center;
+  padding: 1em;
+}
+.slide.centered > div {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  max-height: 90%;
+}
+.slide.centered > div .header {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.slide.centered > div .header h2 {
+  text-align: center;
+  color: #9a0510;
+  text-transform: uppercase;
+}
+.slide.centered > div .header h2:after {
+  display: none;
+}
+.slide.centered > div .content {
+  text-align: left;
+  max-height: 90%;
+  display: inline-block;
+}
+.slide.centered > div .content h3 {
+  color: inherit;
+  padding-left: 0.77em;
+}
+.slide.centered > div .header + .content {
+  margin-top: 1.5em;
+}
+
+.slides.screen .slide.centered .content .screenshot {
+  width: 35em;
+}
+
+.slides.export .slide.centered .content .screenshot {
+  height: 12cm;
+  max-height: none;
+  max-width: none;
+}

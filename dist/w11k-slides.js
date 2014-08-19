@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.4.2 - 2014-07-15
+ * w11k-slides - v0.6.0 - 2014-08-19
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
@@ -187,7 +187,7 @@ angular.module("w11k.slides").controller("SlidesCtrl", [ "$scope", "SlidesServic
     $scope.slides = SlidesService.getSlides();
 } ]);
 
-angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document", "SlidesService", "$rootScope", "slidesConfig", function($location, $document, SlidesService, $rootScope, slidesConfig) {
+angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", "$document", "SlidesService", "$rootScope", "slidesConfig", function($location, $window, $document, SlidesService, $rootScope, slidesConfig) {
     return {
         restrict: "EA",
         templateUrl: slidesConfig.directiveTemplateUrl || "slides/slides.tpl.html",
@@ -205,6 +205,34 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document"
                     SlidesService.navigateTo(previous.name);
                 }
             };
+            var localStorageModeKey = "w11k-slides.mode";
+            var mode = "export";
+            function toggleMode() {
+                if (mode === "export") {
+                    mode = "screen";
+                } else if (mode === "screen") {
+                    mode = "export";
+                }
+                setMode(mode);
+                if (angular.isDefined($window.localStorage)) {
+                    $window.localStorage[localStorageModeKey] = mode;
+                }
+            }
+            function setMode(mode) {
+                if (mode === "export") {
+                    element.removeClass("screen");
+                    element.addClass("export");
+                } else if (mode === "screen") {
+                    element.removeClass("export");
+                    element.addClass("screen");
+                }
+            }
+            if (angular.isDefined($window.localStorage)) {
+                if (angular.isDefined($window.localStorage[localStorageModeKey])) {
+                    mode = $window.localStorage[localStorageModeKey];
+                    setMode(mode);
+                }
+            }
             $document.bind("keydown", function(event) {
                 if (event.keyCode === 39) {
                     $rootScope.$apply(function() {
@@ -228,8 +256,7 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$document"
                     });
                 } else if (event.keyCode === 69) {
                     $rootScope.$apply(function() {
-                        element.toggleClass("export");
-                        element.toggleClass("screen");
+                        toggleMode();
                     });
                 }
             });
