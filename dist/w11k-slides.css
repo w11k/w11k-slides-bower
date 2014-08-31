@@ -16,13 +16,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
-  bottom: 0;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  height: 2.3em;
 }
-/* line 13, ../src/corner-ribbon/_corner-ribbon.scss */
+/* line 11, ../src/corner-ribbon/_corner-ribbon.scss */
 .w11k-corner-ribbon > .content, .slides .slide .corner-ribbon > .content {
   position: absolute;
   top: 0;
@@ -42,12 +40,12 @@
   background: #ed5502;
   color: white;
 }
-/* line 31, ../src/corner-ribbon/_corner-ribbon.scss */
+/* line 29, ../src/corner-ribbon/_corner-ribbon.scss */
 .w11k-corner-ribbon > .content a, .w11k-corner-ribbon > .content a[href^="http"], .slides .slide .corner-ribbon > .content a, .slides .slide .corner-ribbon > .content a[href^="http"] {
   text-decoration: none;
   color: white;
 }
-/* line 36, ../src/corner-ribbon/_corner-ribbon.scss */
+/* line 34, ../src/corner-ribbon/_corner-ribbon.scss */
 .w11k-corner-ribbon > .content a:hover, .slides .slide .corner-ribbon > .content a:hover {
   text-decoration: underline;
 }
@@ -182,15 +180,16 @@ html, body {
 /* line 7, ../src/slides/_basic.scss */
 .slides > div {
   position: relative;
+  overflow: hidden;
 }
-/* line 11, ../src/slides/_basic.scss */
+/* line 12, ../src/slides/_basic.scss */
 .slides .slide {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 2em;
   background: #fff;
   padding: 0 1.5em;
 }
-/* line 17, ../src/slides/_basic.scss */
+/* line 18, ../src/slides/_basic.scss */
 .slides .slide .header {
   position: relative;
   background: #ed5502;
@@ -202,12 +201,12 @@ html, body {
   margin-right: -1.5em;
   padding-right: 12em;
 }
-/* line 29, ../src/slides/_basic.scss */
+/* line 30, ../src/slides/_basic.scss */
 .slides .slide.vcenter {
   vertical-align: middle;
   text-align: center;
 }
-/* line 33, ../src/slides/_basic.scss */
+/* line 34, ../src/slides/_basic.scss */
 .slides .slide h1 {
   color: #ed5502;
   font-size: 2.5em;
@@ -220,7 +219,7 @@ html, body {
   -o-transform: none;
   transform: none;
 }
-/* line 46, ../src/slides/_basic.scss */
+/* line 47, ../src/slides/_basic.scss */
 .slides .slide h2 {
   color: white;
   font-size: 2em;
@@ -228,7 +227,7 @@ html, body {
   margin: 0;
   border: 0;
 }
-/* line 54, ../src/slides/_basic.scss */
+/* line 55, ../src/slides/_basic.scss */
 .slides .slide h2:after {
   position: absolute;
   -webkit-transform: translate(0, -50%);
@@ -246,33 +245,33 @@ html, body {
   background-position: 100% 50%;
   background-size: 1.1em;
 }
-/* line 73, ../src/slides/_basic.scss */
+/* line 74, ../src/slides/_basic.scss */
 .slides .slide h2.simple {
   background-image: none;
   padding-right: 2em;
 }
-/* line 78, ../src/slides/_basic.scss */
+/* line 79, ../src/slides/_basic.scss */
 .slides .slide h3 {
   color: #ed5502;
   font-size: 1.3em;
 }
-/* line 83, ../src/slides/_basic.scss */
+/* line 84, ../src/slides/_basic.scss */
 .slides .slide ul {
   margin: 0 0 1em 1em;
   padding: 0;
 }
-/* line 88, ../src/slides/_basic.scss */
+/* line 89, ../src/slides/_basic.scss */
 .slides .slide pre {
   border-color: #ccc;
   font-size: 0.8em;
   padding: 0;
 }
-/* line 94, ../src/slides/_basic.scss */
+/* line 95, ../src/slides/_basic.scss */
 .slides .slide code {
   color: #888;
   background-color: #eaeaea;
 }
-/* line 99, ../src/slides/_basic.scss */
+/* line 100, ../src/slides/_basic.scss */
 .slides .slide blockquote {
   font-size: 2em;
   font-style: italic;
@@ -281,53 +280,53 @@ html, body {
   color: #000;
   border-left: 5px solid #999999;
 }
-/* line 107, ../src/slides/_basic.scss */
+/* line 108, ../src/slides/_basic.scss */
 .slides .slide blockquote p {
   font-size: inherit;
 }
-/* line 112, ../src/slides/_basic.scss */
+/* line 113, ../src/slides/_basic.scss */
 .slides .slide p {
   margin: 0;
 }
-/* line 116, ../src/slides/_basic.scss */
+/* line 117, ../src/slides/_basic.scss */
 .slides .slide blockquote cite {
   font-size: .5em;
   font-style: normal;
   font-weight: bold;
   color: #999999;
 }
-/* line 123, ../src/slides/_basic.scss */
+/* line 124, ../src/slides/_basic.scss */
 .slides .slide ::-moz-selection {
   background: #c00;
   color: #fff;
 }
-/* line 127, ../src/slides/_basic.scss */
+/* line 128, ../src/slides/_basic.scss */
 .slides .slide ::selection {
   background: #c00;
   color: #fff;
 }
-/* line 132, ../src/slides/_basic.scss */
+/* line 133, ../src/slides/_basic.scss */
 .slides .slide a, .slides .slide a:hover, .slides .slide a:focus, .slides .slide a:active, .slides .slide a:visited {
   color: #111111;
   text-decoration: none;
 }
-/* line 136, ../src/slides/_basic.scss */
+/* line 137, ../src/slides/_basic.scss */
 .slides .slide a[href^="http"] {
   text-decoration: underline;
 }
-/* line 139, ../src/slides/_basic.scss */
+/* line 140, ../src/slides/_basic.scss */
 .slides .slide a:hover, .slides .slide a:focus {
   text-decoration: underline;
 }
-/* line 143, ../src/slides/_basic.scss */
+/* line 144, ../src/slides/_basic.scss */
 .slides .slide ul li ul {
   margin-bottom: 0;
 }
-/* line 147, ../src/slides/_basic.scss */
+/* line 148, ../src/slides/_basic.scss */
 .slides .slide a.btn {
   font-size: 1em;
 }
-/* line 150, ../src/slides/_basic.scss */
+/* line 151, ../src/slides/_basic.scss */
 .slides .slide a.btn:hover {
   text-decoration: none;
 }
@@ -336,7 +335,7 @@ html, body {
   /* line 2, ../src/slides/_screen.scss */
   .slides.screen {
     height: 100%;
-    max-width: 99.9999%;
+    max-width: 99.9999999%;
   }
   /* line 8, ../src/slides/_screen.scss */
   .slides.screen > div {
@@ -498,36 +497,37 @@ html, body {
 /* line 1, ../src/slides/_types.scss */
 .slide.titled {
   padding: 0;
+  overflow: hidden;
 }
-/* line 5, ../src/slides/_types.scss */
+/* line 6, ../src/slides/_types.scss */
 .slide.titled .top {
   position: relative;
-  height: 38.2%;
+  height: 39.2%;
   text-align: center;
   color: #ed5502;
   background-color: transparent;
   padding: 0 2em;
 }
-/* line 13, ../src/slides/_types.scss */
+/* line 14, ../src/slides/_types.scss */
 .slide.titled .top .content {
   position: relative;
-  top: 61.8%;
-  -webkit-transform: translateY(-61.8%);
-  -moz-transform: translateY(-61.8%);
-  -ms-transform: translateY(-61.8%);
-  -o-transform: translateY(-61.8%);
-  transform: translateY(-61.8%);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
   text-align: center;
 }
-/* line 21, ../src/slides/_types.scss */
+/* line 22, ../src/slides/_types.scss */
 .slide.titled .bottom {
   position: relative;
-  height: 61.8%;
+  height: 62.8%;
   border-top: 0.3em solid #c54602;
   background-color: transparent;
   padding: 0 2em;
 }
-/* line 28, ../src/slides/_types.scss */
+/* line 29, ../src/slides/_types.scss */
 .slide.titled .bottom .content {
   position: relative;
   top: 38.2%;
@@ -538,59 +538,63 @@ html, body {
   transform: translateY(-38.2%);
   text-align: center;
 }
+/* line 35, ../src/slides/_types.scss */
+.slide.titled .bottom .content h1 {
+  margin: 0;
+}
 
-/* line 37, ../src/slides/_types.scss */
+/* line 42, ../src/slides/_types.scss */
 .slide.centered {
   vertical-align: middle;
   text-align: center;
   padding: 1em;
 }
-/* line 41, ../src/slides/_types.scss */
+/* line 46, ../src/slides/_types.scss */
 .slide.centered > div {
   display: inline-block;
   margin: auto;
   text-align: center;
   max-height: 90%;
 }
-/* line 47, ../src/slides/_types.scss */
+/* line 52, ../src/slides/_types.scss */
 .slide.centered > div .header {
   background: none;
   border: 0;
   margin: 0;
   padding: 0;
 }
-/* line 54, ../src/slides/_types.scss */
+/* line 59, ../src/slides/_types.scss */
 .slide.centered > div .header h2 {
   text-align: center;
   color: #ed5502;
   text-transform: uppercase;
 }
-/* line 60, ../src/slides/_types.scss */
+/* line 65, ../src/slides/_types.scss */
 .slide.centered > div .header h2:after {
   display: none;
 }
-/* line 65, ../src/slides/_types.scss */
+/* line 70, ../src/slides/_types.scss */
 .slide.centered > div .content {
   text-align: left;
   max-height: 90%;
   display: inline-block;
 }
-/* line 70, ../src/slides/_types.scss */
+/* line 75, ../src/slides/_types.scss */
 .slide.centered > div .content h3 {
   color: inherit;
   padding-left: 0.77em;
 }
-/* line 76, ../src/slides/_types.scss */
+/* line 81, ../src/slides/_types.scss */
 .slide.centered > div .header + .content {
   margin-top: 1.5em;
 }
 
-/* line 85, ../src/slides/_types.scss */
+/* line 90, ../src/slides/_types.scss */
 .slides.screen .slide.centered .content .screenshot {
   width: 35em;
 }
 
-/* line 93, ../src/slides/_types.scss */
+/* line 98, ../src/slides/_types.scss */
 .slides.export .slide.centered .content .screenshot {
   height: 12cm;
   max-height: none;
