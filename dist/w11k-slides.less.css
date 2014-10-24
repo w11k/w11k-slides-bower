@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* * * * * * * * * * * * * * * * * * * *
  * Slides
  * * * * * * * * * * * * * * * * * * * */
@@ -11,7 +10,8 @@
 /* * * * * * * * * * * * * * * * * * * *
  * Corner Ribbon
  * * * * * * * * * * * * * * * * * * * */
-.w11k-corner-ribbon, .slides .slide .corner-ribbon {
+.w11k-corner-ribbon,
+.slides .slide .corner-ribbon {
   position: absolute;
   top: 0;
   right: 0;
@@ -19,7 +19,8 @@
   margin: 0;
   height: 2.3em;
 }
-.w11k-corner-ribbon > .content, .slides .slide .corner-ribbon > .content {
+.w11k-corner-ribbon > .content,
+.slides .slide .corner-ribbon > .content {
   position: absolute;
   top: 0;
   right: 0;
@@ -30,38 +31,25 @@
   padding: 0.2em 0;
   border: 0.1em solid #c54602;
   min-width: 15em;
-  -moz-transform: translate(50%, -50%) rotate(45deg) translateY(6em);
-  -ms-transform: translate(50%, -50%) rotate(45deg) translateY(6em);
-  -webkit-transform: translate(50%, -50%) rotate(45deg) translateY(6em);
   transform: translate(50%, -50%) rotate(45deg) translateY(6em);
   background: #ed5502;
-  color: white;
+  color: #ffffff;
 }
-.w11k-corner-ribbon > .content a, .w11k-corner-ribbon > .content a[href^="http"], .slides .slide .corner-ribbon > .content a, .slides .slide .corner-ribbon > .content a[href^="http"] {
+.w11k-corner-ribbon > .content a,
+.slides .slide .corner-ribbon > .content a,
+.w11k-corner-ribbon > .content a[href^="http"],
+.slides .slide .corner-ribbon > .content a[href^="http"] {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
 }
-.w11k-corner-ribbon > .content a:hover, .slides .slide .corner-ribbon > .content a:hover {
+.w11k-corner-ribbon > .content a:hover,
+.slides .slide .corner-ribbon > .content a:hover {
   text-decoration: underline;
 }
-
 a.example-shown {
   text-decoration: line-through !important;
-  color: #ccc !important;
+  color: #cccccc !important;
 }
-
-/* * * * * * * * * * * * * * * * * * * *
- * Slides
- * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * *
- * Open Once
- * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * *
- * Pretty Print
- * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * *
- * Corner Ribbon
- * * * * * * * * * * * * * * * * * * * */
 .w11k-pretty-print > .title {
   margin-top: 0.3em;
   margin-left: 2.5em;
@@ -82,19 +70,26 @@ a.example-shown {
 .w11k-pretty-print pre.prettyprint .lit {
   color: #195f91;
 }
-.w11k-pretty-print pre.prettyprint .pun, .w11k-pretty-print pre.prettyprint .opn, .w11k-pretty-print pre.prettyprint .clo {
+.w11k-pretty-print pre.prettyprint .pun,
+.w11k-pretty-print pre.prettyprint .opn,
+.w11k-pretty-print pre.prettyprint .clo {
   color: #93a1a1;
 }
 .w11k-pretty-print pre.prettyprint .fun {
   color: #dc322f;
 }
-.w11k-pretty-print pre.prettyprint .str, .w11k-pretty-print pre.prettyprint .atv {
+.w11k-pretty-print pre.prettyprint .str,
+.w11k-pretty-print pre.prettyprint .atv {
   color: #D14;
 }
-.w11k-pretty-print pre.prettyprint .kwd, .w11k-pretty-print pre.prettyprint .linenums .tag {
+.w11k-pretty-print pre.prettyprint .kwd,
+.w11k-pretty-print pre.prettyprint .linenums .tag {
   color: #1e347b;
 }
-.w11k-pretty-print pre.prettyprint .typ, .w11k-pretty-print pre.prettyprint .atn, .w11k-pretty-print pre.prettyprint .dec, .w11k-pretty-print pre.prettyprint .var {
+.w11k-pretty-print pre.prettyprint .typ,
+.w11k-pretty-print pre.prettyprint .atn,
+.w11k-pretty-print pre.prettyprint .dec,
+.w11k-pretty-print pre.prettyprint .var {
   color: teal;
 }
 .w11k-pretty-print pre.prettyprint .pln {
@@ -113,15 +108,12 @@ a.example-shown {
 }
 .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li {
   padding: 0;
-  margin: 0;
-}
-.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li {
   position: relative;
   display: block;
   padding: 0.2em 0.5em;
   margin: 0;
   margin-left: 2em;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   border-radius: 0;
   border-left: 0.1em solid #dddddd;
   min-height: 1.4em;
@@ -139,18 +131,19 @@ a.example-shown {
 .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even) {
   background-color: #dddddd;
 }
-.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover, .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover,
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover {
   background-color: #b7b7b7;
 }
-.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover:before, .w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover:before {
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:hover:before,
+.w11k-pretty-print pre.prettyprint.linenums ol.linenums > li:nth-child(even):hover:before {
   color: #b7b7b7;
 }
-
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
-
 .slides > div {
   position: relative;
   overflow: hidden;
@@ -189,7 +182,7 @@ html, body {
   transform: none;
 }
 .slides .slide h2 {
-  color: white;
+  color: #ffffff;
   font-size: 2em;
   padding: 0;
   margin: 0;
@@ -231,7 +224,7 @@ html, body {
 }
 .slides .slide code {
   color: #888;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
 }
 .slides .slide blockquote {
   font-size: 2em;
@@ -239,7 +232,7 @@ html, body {
   padding: 0.5em;
   padding-left: 1em;
   color: #000;
-  border-left: 5px solid #999;
+  border-left: 5px solid #999999;
 }
 .slides .slide blockquote p {
   font-size: inherit;
@@ -251,7 +244,7 @@ html, body {
   font-size: .5em;
   font-style: normal;
   font-weight: bold;
-  color: #999;
+  color: #999999;
 }
 .slides .slide ::-moz-selection {
   background: #c00;
@@ -261,14 +254,19 @@ html, body {
   background: #c00;
   color: #fff;
 }
-.slides .slide a, .slides .slide a:hover, .slides .slide a:focus, .slides .slide a:active, .slides .slide a:visited {
-  color: #111;
+.slides .slide a,
+.slides .slide a:hover,
+.slides .slide a:focus,
+.slides .slide a:active,
+.slides .slide a:visited {
+  color: #111111;
   text-decoration: none;
 }
 .slides .slide a[href^="http"] {
   text-decoration: underline;
 }
-.slides .slide a:hover, .slides .slide a:focus {
+.slides .slide a:hover,
+.slides .slide a:focus {
   text-decoration: underline;
 }
 .slides .slide ul li ul {
@@ -280,7 +278,6 @@ html, body {
 .slides .slide a.btn:hover {
   text-decoration: none;
 }
-
 @media screen {
   .slides.screen {
     height: 100%;
@@ -316,27 +313,27 @@ html, body {
     margin-right: 0.5em;
     margin-left: -1em;
   }
-  .slides.screen .slide ul li, .slides.screen .slide ol li {
-    color: #111;
+  .slides.screen .slide ul li,
+  .slides.screen .slide ol li {
+    color: #111111;
     margin-bottom: 0.3em;
   }
   .slides.screen .slide li ul li:before {
     content: "▪";
-    color: #111;
+    color: #111111;
   }
 }
 @media print {
   @page {
     margin: 1.5cm;
   }
-  html, body {
+  html,
+  body {
     font-size: 12px;
   }
-
   * {
     color: black;
   }
-
   .slides > div {
     display: block !important;
     page-break-before: always;
@@ -347,7 +344,6 @@ html, body {
   .slides > div > div > .slide {
     display: block;
   }
-
   .slide {
     padding: 0 0.5em;
   }
@@ -427,9 +423,6 @@ html, body {
 .slide.titled .top .content {
   position: relative;
   top: 50%;
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   text-align: center;
 }
@@ -443,16 +436,12 @@ html, body {
 .slide.titled .bottom .content {
   position: relative;
   top: 38.2%;
-  -moz-transform: translateY(-38.2%);
-  -ms-transform: translateY(-38.2%);
-  -webkit-transform: translateY(-38.2%);
   transform: translateY(-38.2%);
   text-align: center;
 }
 .slide.titled .bottom .content h1 {
   margin: 0;
 }
-
 .slide.centered {
   vertical-align: middle;
   text-align: center;
@@ -490,15 +479,11 @@ html, body {
 .slide.centered > div .header + .content {
   margin-top: 1.5em;
 }
-
 .slides.screen .slide.centered .content .screenshot {
   width: 35em;
 }
-
 .slides.export .slide.centered .content .screenshot {
   height: 12cm;
   max-height: none;
   max-width: none;
 }
-
-/*# sourceMappingURL=w11k-slides.css.map */

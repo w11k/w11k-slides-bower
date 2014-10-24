@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.7.1 - 2014-09-01
+ * w11k-slides - v0.8.0 - 2014-10-24
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2014 WeigleWilczek GmbH
