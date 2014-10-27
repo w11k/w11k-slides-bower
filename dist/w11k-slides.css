@@ -421,7 +421,7 @@ html, body {
   height: 39.2%;
   text-align: center;
   color: #ed5502;
-  background-color: transparent;
+  background: transparent;
   padding: 0 2em;
 }
 .slide.titled .top .content {
@@ -437,7 +437,7 @@ html, body {
   position: relative;
   height: 62.8%;
   border-top: 0.3em solid #c54602;
-  background-color: transparent;
+  background: transparent;
   padding: 0 2em;
 }
 .slide.titled .bottom .content {
