@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.8.2 - 2015-02-19
+ * w11k-slides - v0.9.1 - 2015-02-19
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2015 WeigleWilczek GmbH
@@ -228,7 +228,7 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                 }
             }
             function toggleOverlay() {
-                element[0].querySelector("div.overlay").classList.toggle("fadein");
+                element[0].querySelector("div.overlay").classList.toggle("active");
             }
             if (angular.isDefined($window.localStorage)) {
                 if (angular.isDefined($window.localStorage[localStorageModeKey])) {
