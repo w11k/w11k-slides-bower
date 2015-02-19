@@ -1,8 +1,8 @@
 /**
- * w11k-slides - v0.8.2 - 2014-10-27
+ * w11k-slides - v0.8.2 - 2015-02-19
  * https://github.com/w11k/w11k-slides
  *
- * Copyright (c) 2014 WeigleWilczek GmbH
+ * Copyright (c) 2015 WeigleWilczek GmbH
  */
 "use strict";
 
@@ -227,6 +227,9 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                     element.addClass("screen");
                 }
             }
+            function toggleOverlay() {
+                element[0].querySelector("div.overlay").classList.toggle("fadein");
+            }
             if (angular.isDefined($window.localStorage)) {
                 if (angular.isDefined($window.localStorage[localStorageModeKey])) {
                     mode = $window.localStorage[localStorageModeKey];
@@ -234,29 +237,25 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                 }
             }
             $document.bind("keydown", function(event) {
-                if (event.keyCode === 39) {
-                    $rootScope.$apply(function() {
-                        goToNext();
-                    });
-                } else if (event.keyCode === 37) {
-                    $rootScope.$apply(function() {
-                        goToPrevious();
-                    });
+                var action;
+                if (event.keyCode === 39 || event.keyCode === 34) {
+                    action = goToNext;
+                } else if (event.keyCode === 37 || event.keyCode === 33) {
+                    action = goToPrevious;
                 } else if (event.keyCode === 36) {
-                    $rootScope.$apply(function() {
-                        SlidesService.navigateToFirst();
-                    });
+                    action = SlidesService.navigateToFirst;
                 } else if (event.keyCode === 35) {
-                    $rootScope.$apply(function() {
-                        SlidesService.navigateToLast();
-                    });
+                    action = SlidesService.navigateToLast;
                 } else if (event.keyCode === 79) {
-                    $rootScope.$apply(function() {
-                        SlidesService.navigateToOverview();
-                    });
+                    action = SlidesService.navigateToOverview;
                 } else if (event.keyCode === 69) {
+                    action = toggleMode;
+                } else if (event.keyCode === 80 || event.keyCode === 190) {
+                    action = toggleOverlay;
+                }
+                if (action) {
                     $rootScope.$apply(function() {
-                        toggleMode();
+                        action();
                     });
                 }
             });
