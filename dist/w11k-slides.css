@@ -3,6 +3,9 @@
  * Slides
  * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * *
+ * Footer
+ * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * *
  * Open Once
  * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * *
@@ -11,6 +14,24 @@
 /* * * * * * * * * * * * * * * * * * * *
  * Corner Ribbon
  * * * * * * * * * * * * * * * * * * * */
+.w11k-footer {
+  position: absolute;
+  bottom: 1em;
+  right: 1.5em;
+  left: 1.5em;
+  font-size: 0.8em;
+  color: #999;
+}
+.w11k-footer .footer-left {
+  text-align: left;
+}
+.w11k-footer .footer-middle {
+  text-align: center;
+}
+.w11k-footer .footer-right {
+  text-align: right;
+}
+
 .w11k-corner-ribbon, .slides .slide .corner-ribbon {
   position: absolute;
   top: 0;
@@ -53,6 +74,9 @@ a.example-shown {
 
 /* * * * * * * * * * * * * * * * * * * *
  * Slides
+ * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * *
+ * Footer
  * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * *
  * Open Once
@@ -152,7 +176,7 @@ html, body {
   height: 100%;
 }
 
-.slides > div {
+.slides div.slide-container {
   position: relative;
   overflow: hidden;
 }
@@ -308,17 +332,17 @@ html, body {
     -moz-opacity: 1;
     opacity: 1;
   }
-  .slides.screen > div {
+  .slides.screen div.slide-container {
     display: table;
     height: 100%;
     width: 100%;
   }
-  .slides.screen > div > div {
+  .slides.screen div.slide-container > div {
     display: table-row;
     height: 100%;
     width: 100%;
   }
-  .slides.screen > div > div > * {
+  .slides.screen div.slide-container > div > * {
     display: table-cell;
     height: 100%;
     width: 100%;
@@ -407,18 +431,18 @@ html, body {
   .slides.export {
     -webkit-print-color-adjust: exact;
   }
-  .slides.export > div {
+  .slides.export div.slide-container {
     page-break-before: always;
     display: table !important;
     width: 298mm;
     height: 210mm;
   }
-  .slides.export > div > div {
+  .slides.export div.slide-container > div {
     display: table-row;
     height: 100%;
     width: 100%;
   }
-  .slides.export > div > div > * {
+  .slides.export div.slide-container > div > * {
     display: table-cell;
     height: 100%;
     width: 100%;
