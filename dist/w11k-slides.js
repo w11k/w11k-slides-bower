@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.10.0 - 2015-03-03
+ * w11k-slides - v0.10.1 - 2015-03-03
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2015 WeigleWilczek GmbH
@@ -7,6 +7,19 @@
 "use strict";
 
 angular.module("w11k.slides", []);
+
+angular.module("w11k.slides").constant("slidesConfig", {
+    slides: [],
+    slideTemplatePrefix: "slides/content/",
+    slideTemplateSuffix: ".tpl.html",
+    masters: {},
+    footer: {
+        templateUrl: "footer/footer.tpl.html",
+        left: "",
+        middle: "",
+        right: "$index + 1"
+    }
+});
 
 "use strict";
 
@@ -122,19 +135,6 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", "$docume
 } ]);
 
 "use strict";
-
-angular.module("w11k.slides").constant("slidesConfig", {
-    slides: [],
-    slideTemplatePrefix: "slides/content/",
-    slideTemplateSuffix: ".tpl.html",
-    masters: {},
-    footer: {
-        templateUrl: "slides/footer.tpl.html",
-        left: "",
-        middle: "",
-        right: "$index + 1"
-    }
-});
 
 angular.module("w11k.slides").factory("SlidesService", [ "slidesConfig", "$location", "$rootScope", function(slidesConfig, $location, $rootScope) {
     var activeSlide;
@@ -320,6 +320,9 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
             }
             $document.bind("keydown", function(event) {
                 var action;
+                if (event.altKey || event.ctrlKey || event.shiftKey || event.metaKey) {
+                    return;
+                }
                 if (event.keyCode === 39 || event.keyCode === 34) {
                     action = goToNext;
                 } else if (event.keyCode === 37 || event.keyCode === 33) {
