@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.10.1 - 2015-03-03
+ * w11k-slides - v0.10.2 - 2015-05-08
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2015 WeigleWilczek GmbH
@@ -125,7 +125,7 @@ angular.module("w11k.slides").directive("w11kPrettyPrint", [ "$window", "$docume
                         if (titleText !== undefined && titleText !== "") {
                             var titleElement = angular.element(titleTemplate);
                             titleElement.html(titleText);
-                            container.prepend(titleElement);
+                            element.prepend(titleElement);
                         }
                     });
                 };
