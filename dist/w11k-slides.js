@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.10.2 - 2015-05-08
+ * w11k-slides - v0.10.3 - 2015-05-13
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2015 WeigleWilczek GmbH
@@ -320,19 +320,25 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
             }
             $document.bind("keydown", function(event) {
                 var action;
+                var actionType;
                 if (event.altKey || event.ctrlKey || event.shiftKey || event.metaKey) {
                     return;
                 }
                 if (event.keyCode === 39 || event.keyCode === 34) {
                     action = goToNext;
+                    actionType = "navigate";
                 } else if (event.keyCode === 37 || event.keyCode === 33) {
                     action = goToPrevious;
+                    actionType = "navigate";
                 } else if (event.keyCode === 36) {
                     action = SlidesService.navigateToFirst;
+                    actionType = "navigate";
                 } else if (event.keyCode === 35) {
                     action = SlidesService.navigateToLast;
+                    actionType = "navigate";
                 } else if (event.keyCode === 79) {
                     action = SlidesService.navigateToOverview;
+                    actionType = "navigate";
                 } else if (event.keyCode === 69) {
                     action = toggleMode;
                 } else if (event.keyCode === 80 || event.keyCode === 190) {
@@ -341,6 +347,9 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                 if (action) {
                     $rootScope.$apply(function() {
                         action();
+                        if (actionType === "navigate") {
+                            $window.scrollTo(0, 0);
+                        }
                     });
                 }
             });
