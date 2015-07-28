@@ -1,5 +1,5 @@
 /**
- * w11k-slides - v0.10.3 - 2015-05-13
+ * w11k-slides - v0.11.0 - 2015-07-28
  * https://github.com/w11k/w11k-slides
  *
  * Copyright (c) 2015 WeigleWilczek GmbH
@@ -20,6 +20,32 @@ angular.module("w11k.slides").constant("slidesConfig", {
         right: "$index + 1"
     }
 });
+
+"use strict";
+
+angular.module("w11k.slides").directive("w11kEventToggle", [ "$rootScope", function($rootScope) {
+    return {
+        restrict: "A",
+        link: function(scope, jqElement, attrs) {
+            var element = jqElement[0];
+            var originalDisplay;
+            scope.$on(attrs.w11kEventToggle, function(event, visible) {
+                toggle(visible);
+            });
+            function toggle(visible) {
+                if (visible) {
+                    element.style.display = originalDisplay;
+                } else {
+                    originalDisplay = element.style.display;
+                    element.style.display = "none";
+                }
+            }
+            $rootScope.$emit(attrs.w11kEventToggle + "-current", function(visible) {
+                toggle(visible);
+            });
+        }
+    };
+} ]);
 
 "use strict";
 
@@ -269,24 +295,25 @@ angular.module("w11k.slides").directive("w11kSlideMaster", [ "slidesConfig", fun
     };
 } ]);
 
-angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", "$document", "SlidesService", "$rootScope", "slidesConfig", function($location, $window, $document, SlidesService, $rootScope, slidesConfig) {
+angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", "$document", "SlidesService", "$rootScope", "slidesConfig", "$injector", function($location, $window, $document, SlidesService, $rootScope, slidesConfig, $injector) {
     return {
         restrict: "EA",
         templateUrl: slidesConfig.directiveTemplateUrl || "slides/slides.tpl.html",
         replace: true,
-        link: function(scope, element) {
-            var goToNext = function() {
+        link: function(scope, jqElement) {
+            var element = jqElement[0];
+            function goToNext() {
                 var next = SlidesService.getActiveSlide().next;
                 if (angular.isDefined(next)) {
                     SlidesService.navigateTo(next.name);
                 }
-            };
-            var goToPrevious = function() {
+            }
+            function goToPrevious() {
                 var previous = SlidesService.getActiveSlide().previous;
                 if (angular.isDefined(previous)) {
                     SlidesService.navigateTo(previous.name);
                 }
-            };
+            }
             var localStorageModeKey = "w11k-slides.mode";
             var mode = "export";
             function toggleMode() {
@@ -302,15 +329,15 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
             }
             function setMode(mode) {
                 if (mode === "export") {
-                    element.removeClass("screen");
-                    element.addClass("export");
+                    element.classList.remove("screen");
+                    element.classList.add("export");
                 } else if (mode === "screen") {
-                    element.removeClass("export");
-                    element.addClass("screen");
+                    element.classList.remove("export");
+                    element.classList.add("screen");
                 }
             }
             function toggleOverlay() {
-                element[0].querySelector("div.overlay").classList.toggle("active");
+                element.querySelector("div.overlay").classList.toggle("active");
             }
             if (angular.isDefined($window.localStorage)) {
                 if (angular.isDefined($window.localStorage[localStorageModeKey])) {
@@ -322,6 +349,10 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                 var action;
                 var actionType;
                 if (event.altKey || event.ctrlKey || event.shiftKey || event.metaKey) {
+                    return;
+                }
+                var tagName = event.target.tagName;
+                if (tagName === "INPUT" || tagName === "TEXTAREA") {
                     return;
                 }
                 if (event.keyCode === 39 || event.keyCode === 34) {
@@ -352,7 +383,59 @@ angular.module("w11k.slides").directive("w11kSlides", [ "$location", "$window", 
                         }
                     });
                 }
+                var customShortcut = slidesConfig.shortcuts[event.keyCode];
+                if (angular.isFunction(customShortcut) || angular.isArray(customShortcut)) {
+                    $injector.invoke(customShortcut, {
+                        $event: event
+                    });
+                }
             });
         }
     };
+} ]);
+
+"use strict";
+
+angular.module("w11k.slides").config([ "slidesConfig", function(slidesConfig) {
+    slidesConfig.shortcuts = slidesConfig.shortcuts || {};
+    slidesConfig.shortcuts["76"] = [ "SourceSnippets", function(SourceSnippets) {
+        SourceSnippets.toggle();
+    } ];
+} ]);
+
+angular.module("w11k.slides").run([ "SourceSnippets", function(SourceSnippets) {
+    SourceSnippets.init();
+} ]);
+
+angular.module("w11k.slides").service("SourceSnippets", [ "$rootScope", function($rootScope) {
+    var states = {
+        jsOnly: {
+            js: true,
+            ts: false,
+            next: "tsOnly"
+        },
+        tsOnly: {
+            js: false,
+            ts: true,
+            next: "jsAndTs"
+        },
+        jsAndTs: {
+            js: true,
+            ts: true,
+            next: "jsOnly"
+        }
+    };
+    var currentState = states.jsOnly;
+    $rootScope.$on("src-js-current", function(event, callback) {
+        callback(currentState.js);
+    });
+    $rootScope.$on("src-ts-current", function(event, callback) {
+        callback(currentState.ts);
+    });
+    this.toggle = function() {
+        currentState = states[currentState.next];
+        $rootScope.$broadcast("src-js", currentState.js);
+        $rootScope.$broadcast("src-ts", currentState.ts);
+    };
+    this.init = function() {};
 } ]);
