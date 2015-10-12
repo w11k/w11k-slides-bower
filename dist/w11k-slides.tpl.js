@@ -1,11 +1,26 @@
-angular.module('w11k.slides.template', ['slides/slides.tpl.html', 'footer/footer.tpl.html']);
-
-angular.module('slides/slides.tpl.html', []).run(['$templateCache', function($templateCache) {
-  $templateCache.put('slides/slides.tpl.html',
-    '<div class="slides export" ng-controller="SlidesCtrl"><div class="overlay"></div><div class="slide-container" ng-repeat="slide in slides" ng-show="slide.active"><div ng-include="slide.template"></div></div></div>');
+/**
+ * w11k-slides
+ *
+ * @version v0.12.0
+ * @link https://github.com/w11k/w11k-slides
+ * @license MIT
+ */
+(function(module) {
+try { module = angular.module("w11k.slides.template"); }
+catch(err) { module = angular.module("w11k.slides.template", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("src/footer/footer.html",
+    "<div class=w11k-footer><div class=row><div class=\"col-sm-3 footer-left\"></div><div class=\"col-sm-6 footer-middle\"></div><div class=\"col-sm-3 footer-right\"></div></div></div>");
 }]);
+})();
 
-angular.module('footer/footer.tpl.html', []).run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.tpl.html',
-    '<div class="w11k-footer"><div class="row"><div class="col-sm-3 footer-left"></div><div class="col-sm-6 footer-middle"></div><div class="col-sm-3 footer-right"></div></div></div>');
+(function(module) {
+try { module = angular.module("w11k.slides.template"); }
+catch(err) { module = angular.module("w11k.slides.template", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("src/slides/slides.html",
+    "<div class=\"slides export\" ng-controller=\"SlidesCtrl as sc\"><div class=overlay></div><div class=slide-container ng-repeat=\"slide in sc.slides\" ng-show=slide.active><div ng-include=slide.template></div></div></div>");
 }]);
+})();
