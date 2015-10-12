@@ -1,7 +1,7 @@
 /**
  * w11k-slides
  *
- * @version v0.12.0
+ * @version v0.12.2
  * @link https://github.com/w11k/w11k-slides
  * @license MIT
  */
